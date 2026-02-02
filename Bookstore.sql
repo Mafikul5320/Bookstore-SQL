@@ -114,3 +114,5 @@ select * from customers where email like '%.com' and country in ('USA' , 'UK');
 select upper(first_name),upper( last_name), lower(email) from customers where country in  ('USA' , 'UK');
 
 select sum(total_amount) as "Total Revenue",  avg(total_amount) as "Average Amount", max(total_amount) as "Maximum Amount", min(total_amount) as "Minimum Amount" from orders where order_date >= '2023-06-01' and order_date <= '2023-06-30';
+
+SELECT * FROM customers WHERE email is null; --email=null wrong.
