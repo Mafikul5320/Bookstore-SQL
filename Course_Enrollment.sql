@@ -41,8 +41,7 @@ VALUES
 (6, 'Ayaan', 'Ali', 'ayaan@email.com', NULL, 'India', '2023-03-05'),
 (7, 'Lina', 'Rahman', 'lina@email.com', '01644444444', 'Bangladesh', '2023-03-12'),
 (8, 'Mark', 'Taylor', 'mark@email.com', NULL, 'Australia', '2023-03-25'),
-(9, 'Sophia', 'Lee', 'sophia@email.com', '01555555555', 'USA', '2023-04-01'),
-(10, 'Daniel', 'Martinez', 'daniel@email.com', NULL, 'Spain', '2023-04-10');
+
 
 
 
