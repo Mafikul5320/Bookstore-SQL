@@ -108,3 +108,49 @@ ORDER BY c.course_id;
 
 select first_name, last_name, email, course_title from students as s full join enrollments as e on s.student_id= e.student_id full join courses as c on c.course_id=e.course_id;
 
+create table delete_logs(
+  id serial primary key,
+  enroll_id int,
+  action varchar(50),
+  action_time timestamp default now()
+)
+  
+create function delete_enroll_id (enroll_id int)
+  returns void
+  language plpgsql
+  as
+  $$
+  begin
+     delete from enrollments where enrollment_id=enroll_id;
+  end;
+  
+  $$
+
+
+
+create trigger save_as_delete_log
+
+after delete on enrollments for each  row execute function delete_function()
+
+create function delete_function()
+returns trigger
+language plpgsql
+as 
+$$
+
+  begin
+
+  INSERT INTO delete_logs(enroll_id, action)
+  VALUES (OLD.enrollment_id, 'delete');
+  return old;
+  end;
+  
+$$
+
+
+
+select delete_enroll_id(4)
+
+
+DROP TRIGGER IF EXISTS save_as_delete_log ON enrollments;
+DROP FUNCTION IF EXISTS delete_function();
